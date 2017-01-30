@@ -1,0 +1,15 @@
+remove lock =Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+
+keycode 101 = Mode_switch
+! keycode 37 = Mode_switch
+! keycode 66 = Mode_switch
+! ! keycode 118 = backslash bar backslash bar
+! ! keycode 135 = backslash underscore backslash underscore
+keycode 43 = h H Left Left
+keycode 44 = j J Down Down
+keycode 45 = k K Up Up
+keycode 46 = l L Right Right
+!
+! add lock = Caps_Lock
