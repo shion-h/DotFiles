@@ -279,7 +279,6 @@ map <C-h> :GtagsCursor<CR>
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 " }}}
-
 "タブ移動
 nnoremap s gt
 nnoremap S gT

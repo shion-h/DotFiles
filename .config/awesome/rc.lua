@@ -328,6 +328,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("gvim ~")    end),
     awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("mendeleydesktop")    end),
     awful.key({ modkey, "Control" }, "a", function () awful.util.spawn("arandr")    end),
+    awful.key({ modkey, "Control" }, "k", function () awful.util.spawn("gitkraken")    end),
     -- hardware shortcut
     awful.key({ "Mod4",  }, "F6", function () awful.util.spawn("xbacklight -inc 5")    end),
     awful.key({ "Mod4",  }, "F5", function () awful.util.spawn("xbacklight -dec 5")    end),
