@@ -49,7 +49,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "lxterminal"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -108,16 +108,18 @@ memwidget = wibox.widget.textbox()
 -- Register widget
 vicious.register(memwidget, vicious.widgets.mem, "Memory: $1% ($2MB/$3MB)", 13)
 batterywidget = wibox.widget.textbox()
-batterywidget:set_text(" | Battery | ")
-batterywidgettimer = timer({ timeout = 5 })
-batterywidgettimer:connect_signal("timeout",
-  function()
-    fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
-    batterywidget:set_text(" " .. fh:read("*l") .. "  ")
-    fh:close()
-  end
-)
-batterywidgettimer:start()
+-- "BATC" was found by upower -e command (20170214)
+vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, "BATC")
+-- batterywidget:set_text(" | Battery | ")
+-- batterywidgettimer = timer({ timeout = 5 })
+-- batterywidgettimer:connect_signal("timeout",
+--   function()
+--     fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))
+--     batterywidget:set_text(" " .. fh:read("*l") .. "  ")
+--     fh:close()
+--   end
+-- )
+-- batterywidgettimer:start()
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
