@@ -49,7 +49,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "lxterminal"
+terminal = "roxterm"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -321,7 +321,7 @@ globalkeys = awful.util.table.join(
             end
         end),
     -- applications shortcut
-    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("pcmanfm")    end),
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("roxterm --execute vifm")    end),
     awful.key({ modkey, "Control" }, "g", function () awful.util.spawn("google-chrome")    end),
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn("firefox")    end),
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn(terminal) end),

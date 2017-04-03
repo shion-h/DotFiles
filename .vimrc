@@ -147,7 +147,7 @@ function! s:Python()
 		endfunction
 
 if has('vim_starting')
-    cd %:h
+    " cd %:h
     set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
     call dein#begin(expand('~/.vim/dein/'))
 endif
@@ -269,20 +269,6 @@ endif
 " let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 "ここまで}}}
-" call dein#add('vim-scripts/gtags')
-" ダウンロードしたglobalのgtags.vimを利用
-
-" gtags設定{{{
-map <C-g> :Gtags
-map <C-u> :Gtags -f %<CR>
-map <C-h> :GtagsCursor<CR>
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
-" }}}
-
-"タブ移動
-nnoremap s gt
-nnoremap S gT
 
 "insert here your Neobundle plugins"
 call dein#add('scrooloose/nerdtree')
@@ -316,6 +302,21 @@ call dein#add('vim-latex/vim-latex')
 "     \ }
 "neocomplcacheここまで
 call dein#end()
+
+"タブ移動
+nnoremap s gt
+nnoremap S gT
+
+" gtags設定{{{
+set autochdir
+" call dein#add('vim-scripts/gtags')
+" ダウンロードしたglobalのgtags.vimを利用
+map <C-g> :Gtags
+map <C-u> :Gtags -f %<CR>
+map <C-h> :GtagsCursor<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+" }}}
 
 filetype plugin indent on
 
