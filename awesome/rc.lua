@@ -18,6 +18,8 @@ require("debian.menu")
 os.execute("nm-applet &")
 os.execute("/home/shion/.dropbox-dist/dropboxd &")
 os.execute("xfce4-power-manager &")
+-- os.execute("xrandr -s 1600x900")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -109,7 +111,7 @@ memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, "Memory: $1% ($2MB/$3MB)", 13)
 batterywidget = wibox.widget.textbox()
 -- "BATC" was found by upower -e command (20170214)
-vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, "BATC")
+vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, "BAT0")
 -- batterywidget:set_text(" | Battery | ")
 -- batterywidgettimer = timer({ timeout = 5 })
 -- batterywidgettimer:connect_signal("timeout",

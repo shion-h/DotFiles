@@ -163,8 +163,8 @@ function dict() {
 alias dict=dict
 alias ipython='ipython --TerminalInteractiveShell.editing_mode=vi'
 
-#boost
-export PATH="/home/shion/local/lib:$PATH"
-
 # make vim warning unvisible
 export NO_AT_BRIDGE=1
+
+# boost
+export LD_LIBRARY_PATH=/usr/local/lib/
