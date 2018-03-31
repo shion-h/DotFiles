@@ -135,12 +135,12 @@ alias idenken='ssh -Y shion-h@gw.ddbj.nig.ac.jp'
 alias idenken2='ssh -Y shion-h@gw2.ddbj.nig.ac.jp'
 # あっちのシェルがbashでないといけない
 function idenken-scp-up(){
-	scp $@ shion-h@gw.ddbj.nig.ac.jp:/home/shion-h/study
+	scp $@ shion-h@gw.ddbj.nig.ac.jp:/home/shion-h/data
 }
 alias idenken-scp-up=idenken-scp-up
 
 function idenken-scp-down(){
-	scp shion-h@gw.ddbj.nig.ac.jp:/home/shion-h/study/$1 ./
+	scp shion-h@gw.ddbj.nig.ac.jp:/home/shion-h/$1 ./
 }
 alias idenken-scp-down=idenken-scp-down
 

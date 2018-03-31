@@ -20,6 +20,14 @@ os.execute("/home/shion/.dropbox-dist/dropboxd &")
 os.execute("xfce4-power-manager &")
 -- os.execute("xrandr -s 1600x900")
 
+-- displayChangeTimer = timer({ timeout = 1 })
+-- displayChangeTimer:connect_signal(
+--   "timeout",
+--   function ()
+--     awful.util.spawn("~/.config/awesome/auto_multi_display.sh")
+--   end
+-- )
+-- displayChangeTimer:start()
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -332,6 +340,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "a", function () awful.util.spawn("arandr")    end),
     awful.key({ modkey, "Control" }, "k", function () awful.util.spawn("gitkraken")    end),
     -- hardware shortcut
+    awful.key({ modkey, "Control" }, "d", function () awful.util.spawn_with_shell("bash ~/.config/awesome/auto_multi_display.sh")    end),
     awful.key({ "Mod4",  }, "F6", function () awful.util.spawn("xbacklight -inc 5")    end),
     awful.key({ "Mod4",  }, "F5", function () awful.util.spawn("xbacklight -dec 5")    end),
     awful.key({modkey,            }, "F1",     function () awful.screen.focus(1) end),
