@@ -1,15 +1,13 @@
-remove lock =Caps_Lock
+! CapsLockとCtrlを入れ替える
+!
+remove Lock = Caps_Lock
+remove Control = Control_L
 keysym Caps_Lock = Control_L
+keysym Control_L = Caps_Lock
+add Lock = Caps_Lock
 add Control = Control_L
 
-keycode 101 = Mode_switch
-! keycode 37 = Mode_switch
-! keycode 66 = Mode_switch
-! ! keycode 118 = backslash bar backslash bar
-! ! keycode 135 = backslash underscore backslash underscore
-keycode 43 = h H Left Left
-keycode 44 = j J Down Down
-keycode 45 = k K Up Up
-keycode 46 = l L Right Right
+! keycode 49 = asciitilde grave asciitilde grave
+keycode 49 = grave asciitilde grave asciitilde
 !
 ! add lock = Caps_Lock

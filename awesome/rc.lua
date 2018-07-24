@@ -335,7 +335,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "g", function () awful.util.spawn("google-chrome")    end),
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn("firefox")    end),
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("gvim ~")    end),
+    awful.key({ modkey, "Control" }, "v", function () awful.util.spawn("gvim /home/shion/Dropbox/Study/Memo/note.txt")    end),
     awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("mendeleydesktop")    end),
     awful.key({ modkey, "Control" }, "a", function () awful.util.spawn("arandr")    end),
     awful.key({ modkey, "Control" }, "k", function () awful.util.spawn("gitkraken")    end),

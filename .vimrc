@@ -37,7 +37,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 
 
-inoremap <silent> <esc> <esc>:call IMCtrl('Off')<CR>
+" inoremap <silent> <esc> <esc>:call IMCtrl('Off')<CR>
 set timeout timeoutlen=1000 ttimeoutlen=75
 function! IMCtrl(cmd)
   let cmd = a:cmd
@@ -157,8 +157,8 @@ call dein#add('tyru/caw.vim.git')
 nmap <C-K> <Plug>(caw:hatpos:toggle)
 vmap <C-K> <Plug>(caw:hatpos:toggle)
 
-call dein#add('The-NERD-tree')
-call dein#add('auto-pairs')
+call dein#add('vim-scripts/The-NERD-tree')
+call dein#add('vim-scripts/auto-pairs')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 "{{{neosnippet設定
@@ -277,7 +277,7 @@ let g:neocomplete#sources#omni#input_patterns.python = ''
 " "ここまで}}}
 
 "insert here your Neobundle plugins"
-call dein#add('scrooloose/nerdtree')
+" call dein#add('scrooloose/nerdtree')
 "call dein#add('tpope/vim-endwise')
 call dein#add('vim-scripts/AnsiEsc.vim')
 call dein#add('bronson/vim-trailing-whitespace')
