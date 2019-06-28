@@ -171,3 +171,9 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 
 # zotero
 export PATH="$PATH:/home/shion/.local/bin/Zotero_linux-x86_64"
+
+# tmuxで起動をデフォに
+# [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
+
+MDIR="/home/shion/metaphlan"
+export PATH=$MDIR:$MDIR/utils/:$PATH

@@ -339,6 +339,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("mendeleydesktop")    end),
     awful.key({ modkey, "Control" }, "a", function () awful.util.spawn("arandr")    end),
     awful.key({ modkey, "Control" }, "k", function () awful.util.spawn("gitkraken")    end),
+    awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("slack")    end),
     -- hardware shortcut
     awful.key({ modkey, "Control" }, "d", function () awful.util.spawn_with_shell("bash ~/.config/awesome/auto_multi_display.sh")    end),
     awful.key({ "Mod4",  }, "F6", function () awful.util.spawn("xbacklight -inc 5")    end),

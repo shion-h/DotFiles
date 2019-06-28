@@ -38,18 +38,18 @@ set ruler		" show the cursor position all the time
 
 
 " inoremap <silent> <esc> <esc>:call IMCtrl('Off')<CR>
-set timeout timeoutlen=1000 ttimeoutlen=75
-function! IMCtrl(cmd)
-  let cmd = a:cmd
-  if cmd == 'On'
-    let res = system('fcitx-remote -o > /dev/null 2>&1')
-  elseif cmd == 'Off'
-    let res = system('fcitx-remote -c > /dev/null 2>&1')
-  elseif cmd == 'Toggle'
-    let res = system('fcitx-remote -t > /dev/null 2>&1')
-  endif
-  return ''
-endfunction
+" set timeout timeoutlen=1000 ttimeoutlen=75
+" function! IMCtrl(cmd)
+"   let cmd = a:cmd
+"   if cmd == 'On'
+"     let res = system('fcitx-remote -o > /dev/null 2>&1')
+"   elseif cmd == 'Off'
+"     let res = system('fcitx-remote -c > /dev/null 2>&1')
+"   elseif cmd == 'Toggle'
+"     let res = system('fcitx-remote -t > /dev/null 2>&1')
+"   endif
+"   return ''
+" endfunction
 
 
 " Only do this part when compiled with support for autocommands
@@ -117,7 +117,12 @@ nnoremap <C-p> gT
 "imap < <><LEFT>
 """""""""""""""""""""""""""""
 " 行を強調表示
+"
 set cursorline
+" アンダーラインを引く(color terminal)
+" highlight CursorLine cterm=NONE ctermfg=white ctermbg=black
+" アンダーラインを引く(gui)
+" highlight CursorLine gui=NONE guifg=white guibg=black
 
 filetype off                   " required!
 
@@ -314,14 +319,14 @@ nnoremap s gt
 nnoremap S gT
 
 " gtags設定{{{
-set autochdir
+" set autochdir
 " call dein#add('vim-scripts/gtags')
 " ダウンロードしたglobalのgtags.vimを利用
-map <C-g> :Gtags
-map <C-u> :Gtags -f %<CR>
-map <C-h> :GtagsCursor<CR>
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
+" map <C-g> :Gtags
+" map <C-u> :Gtags -f %<CR>
+" map <C-h> :GtagsCursor<CR>
+" map <C-n> :cn<CR>
+" map <C-p> :cp<CR>
 " }}}
 
 filetype plugin indent on
