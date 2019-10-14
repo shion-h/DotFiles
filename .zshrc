@@ -27,9 +27,9 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
 ### History ###
-HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
+HISTFILE=~/Dropbox/Study/Memo/.zsh_history   # ヒストリを保存するファイル
 HISTSIZE=10000            # メモリに保存されるヒストリの件数
-SAVEHIST=10000            # 保存されるヒストリの件数
+SAVEHIST=1000000            # 保存されるヒストリの件数
 setopt bang_hist          # !を使ったヒストリ展開を行う(d)
 setopt extended_history   # ヒストリに実行時間も保存する
 setopt hist_ignore_dups   # 直前と同じコマンドはヒストリに追加しない

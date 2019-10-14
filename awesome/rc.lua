@@ -16,7 +16,7 @@ local menubar = require("menubar")
 require("debian.menu")
 
 os.execute("nm-applet &")
-os.execute("/home/shion/.dropbox-dist/dropboxd &")
+os.execute("~/.dropbox-dist/dropboxd &")
 os.execute("xfce4-power-manager &")
 -- os.execute("xrandr -s 1600x900")
 
