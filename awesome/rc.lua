@@ -15,10 +15,7 @@ local menubar = require("menubar")
 -- Load Debian menu entries
 require("debian.menu")
 
-os.execute("nm-applet &")
-os.execute("~/.dropbox-dist/dropboxd &")
-os.execute("xfce4-power-manager &")
--- os.execute("xrandr -s 1600x900")
+dofile("startup.lua")
 
 -- displayChangeTimer = timer({ timeout = 1 })
 -- displayChangeTimer:connect_signal(
@@ -59,7 +56,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "roxterm"
+terminal = "gnome-terminal -- "
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -105,13 +102,13 @@ for s = 1, screen.count() do
 end
 -- }}}
 
-spacer       = wibox.widget.textbox()
+spacer = wibox.widget.textbox()
 spacer:set_text(' | ')
 
 -- Initialize widget
 cpuwidget = wibox.widget.textbox()
 -- Register widget
-vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%\t|| $2%\t|  $3%\t|  $4%\t|  $5%\t", 2)
+vicious.register(cpuwidget, vicious.widgets.cpu, "CPU: $1%\t||  $2%\t|  $3%\t|  $4%\t|  $5%\t|  $6%\t|  $7%\t|  $8%\t|  $9%\t", 2)
 
 -- Initialize widget
 memwidget = wibox.widget.textbox()
@@ -119,7 +116,9 @@ memwidget = wibox.widget.textbox()
 vicious.register(memwidget, vicious.widgets.mem, "Memory: $1% ($2MB/$3MB)", 13)
 batterywidget = wibox.widget.textbox()
 -- "BATC" was found by upower -e command (20170214)
-vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, "BAT0")
+vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, batteryname)
+-- flag, outputs = rt.command("ls")
+-- vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $4%", 31, os.getenv("BATTERY_NAME"))
 -- batterywidget:set_text(" | Battery | ")
 -- batterywidgettimer = timer({ timeout = 5 })
 -- batterywidgettimer:connect_signal("timeout",
@@ -134,7 +133,7 @@ vicious.register(batterywidget, vicious.widgets.bat, " Battery: $2% ($3) wear- $
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
+   { "manual", terminal .. "man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit }
@@ -331,7 +330,7 @@ globalkeys = awful.util.table.join(
             end
         end),
     -- applications shortcut
-    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn("roxterm --execute vifm")    end),
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn(terminal .. "vifm")    end),
     awful.key({ modkey, "Control" }, "g", function () awful.util.spawn("google-chrome")    end),
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn("firefox")    end),
     awful.key({ modkey, "Control" }, "t", function () awful.util.spawn(terminal) end),

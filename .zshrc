@@ -65,8 +65,16 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=45;34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-alias ls="ls -F --color"
-alias gls="gls --color"
+case ${OSTYPE} in
+    darwin*)
+        #ここにMac向けの設定
+        ;;
+    linux*)
+        #ここにLinux向けの設定
+        alias ls="ls -F --color"
+        alias gls="gls --color"
+        ;;
+esac
 
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
@@ -155,7 +163,7 @@ alias gitup=gitup
 # git remote add origin git@gitlab.com:little1buffer/home.git
 
 # added by Miniconda3 4.1.11 installer
-export PATH="/home/shion/miniconda3/bin:$PATH"
+# export PATH="/home/shion/miniconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize
 #dictionary
 function dict() {
     grep $1 /home/shion/Downloads/gene-utf8.txt -A 1 -wi --color
@@ -175,5 +183,32 @@ export PATH="$PATH:/home/shion/.local/bin/Zotero_linux-x86_64"
 # tmuxで起動をデフォに
 # [[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 
-MDIR="/home/shion/metaphlan"
-export PATH=$MDIR:$MDIR/utils/:$PATH
+# MDIR="/home/shion/metaphlan"
+# export PATH=$MDIR:$MDIR/utils/:$PATH
+
+# export PATH="/usr/local/opt/icu4c/bin:$PATH"
+# export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# brightness setting for awesome
+function brightness() {
+    sudo tee /sys/class/backlight/intel_backlight/brightness <<<$1
+}
+alias brightness=brightness
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/shion/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/shion/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/shion/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/shion/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"

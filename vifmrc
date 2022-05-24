@@ -166,7 +166,12 @@ command! reload :write | restart
 " filetype *.ipynb lxterminal --command "jupyter notebook" &
 
 " Pdf
-filetype *.pdf evince %f 2>/dev/null &
+let $OS = system('uname -s')
+if $OS == 'Darwin'
+    filetype *.pdf open %f &
+elseif $OS == 'Linux'
+    filetype *.pdf evince %f 2>/dev/null &
+endif
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
@@ -208,6 +213,8 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.vob,*.flv,*.m2v,*.m
 
 " Web
 filextype *.html,*.htm
+        \ {Open with google-chrome}
+        \ chromium-browser %f &,
         \ {Open with dwb}
         \ dwb %f %i &,
         \ {Open with firefox}
@@ -427,3 +434,17 @@ nnoremap <f8> :delete<cr>
 " Block particular shortcut
 "
 " nnoremap <left> <nop>
+set confirm=permdelete
+
+" コピペ
+set timefmt=" %Y/%m/%d %H:%M:%S"
+" -rw-r--r-- shionhosoda:staff    48 B     [406.812 G f]
+"vifmrc  [/Users/shionhosoda/Dropbox/Study/DotFiles/vifmrc] -rw-r--r-- shionhosoda:staff  48 B    [406.817 G free]
+" %= で半分に区切る
+"set statusline="  %t  [%T]%= %A %10u:%-7g %15s %20d [%a free]"
+set statusline="  %-20t %20d   %-15s"
+"set viewcolumns=-45%{name}..,-{ext},10{size},12{perms},21{mtime}
+set viewcolumns=-90%{name}..,-{ext}
+set sizefmt=units:iec,precision:3
+
+let $SHELL = "/bin/zsh"

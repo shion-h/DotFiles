@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IN="eDP1"
-EXT="DP1"
+IN="eDP-1"
+EXT="DP-1"
 
 if (xrandr | grep "$EXT disconnected"); then
     xrandr --output $IN --mode 1600x900 --output $EXT --off
